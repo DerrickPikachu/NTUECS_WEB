@@ -1,7 +1,7 @@
 <template>
-<!--  <Head />-->
   <nav>
     <div class='container'>
+      <div class='fontawesome-cog' id='icon'></div>
       <ul>
         <li>
           <a href='#'>Item 1</a>
@@ -22,10 +22,9 @@
     </div>
   </nav>
   <header>
-    <HiddenImg></HiddenImg>
-<!--    <div class='container'>-->
-
-<!--    </div>-->
+    <div class='container'>
+      <h1>Opacity on scroll</h1>
+    </div>
   </header>
   <div id='nav-bg'></div>
   <section id='about'>
@@ -36,19 +35,11 @@
 </template>
 
 <script>
-// import Head from './components/Head.vue'
-import HiddenImg from './components/HiddenImg.vue'
-// import test from './components/test.vue'
 import $ from 'jquery'
-
 export default {
-  name: 'App',
-  components: {
-    // test
-    // Head,
-    HiddenImg
-  }
+  name: "test"
 }
+
 var header = $('header');
 var range = 200;
 
@@ -59,11 +50,7 @@ $(window).on('scroll', function () {
       offset = height / 2,
       calc = 1 - (scrollTop - offset + range) / range;
 
-  console.log("scrollTop: " + scrollTop);
-  console.log("height: " + height);
-  console.log("offset: " + offset);
-  console.log("calc: " + calc);
-  header.css({ 'opacity': toString(calc) });
+  header.css({ 'opacity': calc });
 
   if (calc > '1') {
     header.css({ 'opacity': 1 });
@@ -74,7 +61,7 @@ $(window).on('scroll', function () {
 });
 </script>
 
-<style>
+<style scoped>
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 @import url(http://weloveiconfonts.com/api/?family=fontawesome);
 [class*=fontawesome-]:before {
@@ -96,12 +83,12 @@ body {
   color: #FFF;
 }
 
-/*.container {*/
-/*  max-width: 60em;*/
-/*  min-width: 45em;*/
-/*  margin: 0 auto;*/
-/*  padding: 0 2em;*/
-/*}*/
+.container {
+  max-width: 60em;
+  min-width: 45em;
+  margin: 0 auto;
+  padding: 0 2em;
+}
 
 nav {
   position: fixed;
@@ -134,6 +121,14 @@ nav a:hover {
   color: #DDD;
 }
 
+#icon {
+  display: inline-block;
+  padding-top: 0.7em;
+  font-size: 2em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 #nav-bg {
   background: #222;
   position: fixed;
@@ -146,6 +141,7 @@ nav a:hover {
 header {
   position: relative;
   background-color: #FD7777;
+  padding: 10em 0 8em;
   z-index: 2;
 }
 header h1 {
