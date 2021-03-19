@@ -21,12 +21,7 @@
       </ul>
     </div>
   </nav>
-  <header>
-    <HiddenImg></HiddenImg>
-<!--    <div class='container'>-->
-
-<!--    </div>-->
-  </header>
+  <titleHead ref="header" id="header"></titleHead>
   <div id='nav-bg'></div>
   <section id='about'>
     <div class='container'>
@@ -36,8 +31,8 @@
 </template>
 
 <script>
-// import Head from './components/Head.vue'
-import HiddenImg from './components/HiddenImg.vue'
+import titleHead from './components/titleHead.vue'
+// import HiddenImg from './components/HiddenImg.vue'
 // import test from './components/test.vue'
 import $ from 'jquery'
 
@@ -45,33 +40,38 @@ export default {
   name: 'App',
   components: {
     // test
-    // Head,
-    HiddenImg
+    titleHead
+    // HiddenImg
+  },
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
+  data() {
+    return {
+      range: 200
+    }
+  },
+  methods: {
+    handleScroll: function() {
+      var header = document.getElementById("header");
+      var scrollTop = window.scrollY,
+          height = header.clientHeight,
+          calc = 1 - (scrollTop / height);
+      console.log("calc: " + calc);
+
+      if (calc > 1) {
+        header.style.opacity = '1';
+      } else if (calc < 0) {
+        header.style.opacity = '0';
+      } else {
+        header.style.opacity = '' + calc;
+      }
+    }
   }
 }
-var header = $('header');
-var range = 200;
-
-$(window).on('scroll', function () {
-
-  var scrollTop = $(this).scrollTop(),
-      height = header.outerHeight(),
-      offset = height / 2,
-      calc = 1 - (scrollTop - offset + range) / range;
-
-  console.log("scrollTop: " + scrollTop);
-  console.log("height: " + height);
-  console.log("offset: " + offset);
-  console.log("calc: " + calc);
-  header.css({ 'opacity': toString(calc) });
-
-  if (calc > '1') {
-    header.css({ 'opacity': 1 });
-  } else if ( calc < '0' ) {
-    header.css({ 'opacity': 0 });
-  }
-
-});
 </script>
 
 <style>
@@ -141,17 +141,6 @@ nav a:hover {
   width: 100%;
   top: 0;
   z-index: 1;
-}
-
-header {
-  position: relative;
-  background-color: #FD7777;
-  z-index: 2;
-}
-header h1 {
-  font-size: 4em;
-  text-transform: uppercase;
-  text-align: center;
 }
 
 #about {

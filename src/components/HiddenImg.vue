@@ -14,14 +14,6 @@
 export default {
   name: "HiddenImg"
 }
-
-// $(window).scroll(function() {
-//   if ($(window).scrollTop() > 200) {
-//
-//   } else {
-//
-//   }
-// })
 </script>
 
 <style scoped>
@@ -48,5 +40,10 @@ export default {
 }
 .contentHeight {
   height: 25vh;
+}
+h1 {
+  font-size: 4em;
+  text-transform: uppercase;
+  text-align: center;
 }
 </style>

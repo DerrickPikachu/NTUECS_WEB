@@ -50,6 +50,8 @@ $(window).on('scroll', function () {
       offset = height / 2,
       calc = 1 - (scrollTop - offset + range) / range;
 
+  console.log(height);
+
   header.css({ 'opacity': calc });
 
   if (calc > '1') {
