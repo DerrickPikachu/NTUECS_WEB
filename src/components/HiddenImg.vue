@@ -3,8 +3,8 @@
   <div class="w-100 title hiddenImg" id="mainTitle">
     <div class="container titleText d-flex text-center align-items-center">
       <div class="w-100">
-        <h1>Hi! I am PikaChin!</h1>
-        <p>Here is my own website</p>
+        <h1>資訊科學系</h1>
+        <p>國立臺北教育大學</p>
       </div>
     </div>
   </div>
@@ -19,7 +19,7 @@ export default {
 <style scoped>
 .hiddenImg {
   /*position: fixed;*/
-  background: url(../testImg.png) no-repeat center center fixed;
+  background: url(../background.jpg) no-repeat center center fixed;
   background-size: cover;
   width: 100%;
   z-index: -100;

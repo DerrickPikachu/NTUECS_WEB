@@ -1,166 +1,46 @@
 <template>
-  <nav>
-    <div class='container'>
-      <div class='fontawesome-cog' id='icon'></div>
-      <ul>
-        <li>
-          <a href='#'>Item 1</a>
-        </li>
-        <li>
-          <a href='#'>Item 2</a>
-        </li>
-        <li>
-          <a href='#'>Item 3</a>
-        </li>
-        <li>
-          <a href='#'>Item 4</a>
-        </li>
-        <li>
-          <a href='#'>Item 5</a>
-        </li>
-      </ul>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
     </div>
   </nav>
-  <header>
-    <div class='container'>
-      <h1>Opacity on scroll</h1>
-    </div>
-  </header>
-  <div id='nav-bg'></div>
-  <section id='about'>
-    <div class='container'>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vel diam lacus. Nam quis ipsum nec massa sagittis scelerisque ac non urna. Phasellus posuere orci ac tellus interdum mollis eu vitae mi. Aliquam nec ante lobortis, suscipit lectus eu, dignissim ante. Nam imperdiet quis eros.</p>
-    </div>
-  </section>
 </template>
 
 <script>
-import $ from 'jquery'
-export default {
-  name: "test"
-}
 
-var header = $('header');
-var range = 200;
-
-$(window).on('scroll', function () {
-
-  var scrollTop = $(this).scrollTop(),
-      height = header.outerHeight(),
-      offset = height / 2,
-      calc = 1 - (scrollTop - offset + range) / range;
-
-  console.log(height);
-
-  header.css({ 'opacity': calc });
-
-  if (calc > '1') {
-    header.css({ 'opacity': 1 });
-  } else if ( calc < '0' ) {
-    header.css({ 'opacity': 0 });
-  }
-
-});
 </script>
 
 <style scoped>
-@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
-@import url(http://weloveiconfonts.com/api/?family=fontawesome);
-[class*=fontawesome-]:before {
-  font-family: "FontAwesome", sans-serif;
-}
 
-* {
-  box-sizing: border-box;
-}
-*:before, *:after {
-  box-sizing: border-box;
-}
-
-body {
-  background: #222;
-  margin: 0;
-  font-family: "Montserrat", sans-serif;
-  font-size: 16px;
-  color: #FFF;
-}
-
-.container {
-  max-width: 60em;
-  min-width: 45em;
-  margin: 0 auto;
-  padding: 0 2em;
-}
-
-nav {
-  position: fixed;
-  width: 100%;
-  margin: 0 auto;
-  top: 0;
-  z-index: 3;
-}
-nav ul {
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
-  float: right;
-}
-nav li {
-  display: inline-block;
-  padding: 2em;
-  text-align: center;
-  transition: all 0.2s;
-}
-nav li:last-child {
-  padding-right: 0;
-}
-nav a {
-  color: #FFF;
-  text-decoration: none;
-  transition: all 0.3s;
-}
-nav a:hover {
-  color: #DDD;
-}
-
-#icon {
-  display: inline-block;
-  padding-top: 0.7em;
-  font-size: 2em;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-#nav-bg {
-  background: #222;
-  position: fixed;
-  height: 5em;
-  width: 100%;
-  top: 0;
-  z-index: 1;
-}
-
-header {
-  position: relative;
-  background-color: #FD7777;
-  padding: 10em 0 8em;
-  z-index: 2;
-}
-header h1 {
-  font-size: 4em;
-  text-transform: uppercase;
-  text-align: center;
-}
-
-#about {
-  background: #E7E3DA;
-  height: 70em;
-  padding: 5em 0;
-}
-#about p {
-  line-height: 2em;
-  font-size: 1.4em;
-  margin: 0;
-  color: #222;
-}
 </style>

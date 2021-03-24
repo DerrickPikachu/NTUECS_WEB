@@ -1,37 +1,29 @@
 <template>
-<!--  <Head />-->
-  <nav>
-    <div class='container'>
-      <ul>
-        <li>
-          <a href='#'>Item 1</a>
-        </li>
-        <li>
-          <a href='#'>Item 2</a>
-        </li>
-        <li>
-          <a href='#'>Item 3</a>
-        </li>
-        <li>
-          <a href='#'>Item 4</a>
-        </li>
-        <li>
-          <a href='#'>Item 5</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+  <Head />
+  <NavBar></NavBar>
   <titleHead ref="header" id="header"></titleHead>
   <div id='nav-bg'></div>
   <section id='about'>
     <div class='container'>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vel diam lacus. Nam quis ipsum nec massa sagittis scelerisque ac non urna. Phasellus posuere orci ac tellus interdum mollis eu vitae mi. Aliquam nec ante lobortis, suscipit lectus eu, dignissim ante. Nam imperdiet quis eros.</p>
+<!--      <div style="height: 25em; background-color: darkseagreen"></div>-->
+      <div style="height: 25em" class="informationBlock"></div>
+<!--      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vel diam lacus. Nam quis ipsum nec massa sagittis scelerisque ac non urna. Phasellus posuere orci ac tellus interdum mollis eu vitae mi. Aliquam nec ante lobortis, suscipit lectus eu, dignissim ante. Nam imperdiet quis eros.</p>-->
+    </div>
+    <div class="container">
+<!--      <div style="height: 25em; background-color: cornflowerblue"></div>-->
+      <div style="height: 25em;" class="informationBlock"></div>
+    </div>
+    <div class="container">
+<!--      <div style="height: 25em; background-color: indianred"></div>-->
+      <div style="height: 25em" class="informationBlock"></div>
     </div>
   </section>
+<!--  <test></test>-->
 </template>
 
 <script>
 import titleHead from './components/titleHead.vue'
+import NavBar from "@/components/NavBar";
 // import HiddenImg from './components/HiddenImg.vue'
 // import test from './components/test.vue'
 import $ from 'jquery'
@@ -40,7 +32,8 @@ export default {
   name: 'App',
   components: {
     // test
-    titleHead
+    titleHead,
+    NavBar
     // HiddenImg
   },
   mounted() {
@@ -103,37 +96,6 @@ body {
 /*  padding: 0 2em;*/
 /*}*/
 
-nav {
-  position: fixed;
-  width: 100%;
-  margin: 0 auto;
-  top: 0;
-  z-index: 3;
-}
-nav ul {
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
-  float: right;
-}
-nav li {
-  display: inline-block;
-  padding: 2em;
-  text-align: center;
-  transition: all 0.2s;
-}
-nav li:last-child {
-  padding-right: 0;
-}
-nav a {
-  color: #FFF;
-  text-decoration: none;
-  transition: all 0.3s;
-}
-nav a:hover {
-  color: #DDD;
-}
-
 #nav-bg {
   background: #222;
   position: fixed;
@@ -142,10 +104,9 @@ nav a:hover {
   top: 0;
   z-index: 1;
 }
-
 #about {
   background: #E7E3DA;
-  height: 70em;
+  /*height: 70em;*/
   padding: 5em 0;
 }
 #about p {
@@ -153,5 +114,10 @@ nav a:hover {
   font-size: 1.4em;
   margin: 0;
   color: #222;
+}
+.informationBlock {
+  background-color: white;
+  margin-top: 5em;
+  border-radius: 5px;
 }
 </style>
