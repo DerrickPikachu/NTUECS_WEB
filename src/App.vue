@@ -1,29 +1,15 @@
 <template>
-  <Head />
   <NavBar></NavBar>
   <titleHead ref="header" id="header"></titleHead>
   <div id='nav-bg'></div>
-  <section id='about'>
-    <div class='container'>
-<!--      <div style="height: 25em; background-color: darkseagreen"></div>-->
-      <div style="height: 25em" class="informationBlock"></div>
-<!--      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vel diam lacus. Nam quis ipsum nec massa sagittis scelerisque ac non urna. Phasellus posuere orci ac tellus interdum mollis eu vitae mi. Aliquam nec ante lobortis, suscipit lectus eu, dignissim ante. Nam imperdiet quis eros.</p>-->
-    </div>
-    <div class="container">
-<!--      <div style="height: 25em; background-color: cornflowerblue"></div>-->
-      <div style="height: 25em;" class="informationBlock"></div>
-    </div>
-    <div class="container">
-<!--      <div style="height: 25em; background-color: indianred"></div>-->
-      <div style="height: 25em" class="informationBlock"></div>
-    </div>
-  </section>
+  <about></about>
 <!--  <test></test>-->
 </template>
 
 <script>
-import titleHead from './components/titleHead.vue'
+import titleHead from './components/titleHead.vue';
 import NavBar from "@/components/NavBar";
+import about from "@/components/about";
 // import HiddenImg from './components/HiddenImg.vue'
 // import test from './components/test.vue'
 import $ from 'jquery'
@@ -33,7 +19,8 @@ export default {
   components: {
     // test
     titleHead,
-    NavBar
+    NavBar,
+    about
     // HiddenImg
   },
   mounted() {
@@ -103,21 +90,5 @@ body {
   width: 100%;
   top: 0;
   z-index: 1;
-}
-#about {
-  background: #E7E3DA;
-  /*height: 70em;*/
-  padding: 5em 0;
-}
-#about p {
-  line-height: 2em;
-  font-size: 1.4em;
-  margin: 0;
-  color: #222;
-}
-.informationBlock {
-  background-color: white;
-  margin-top: 5em;
-  border-radius: 5px;
 }
 </style>

@@ -45,6 +45,11 @@ nav {
   margin: 0 auto;
   top: 0;
   z-index: 3;
+  height: 5em;
+}
+nav:hover {
+  background-color: #222;
+  transition: all 0.5s;
 }
 nav ul {
   padding: 0;
