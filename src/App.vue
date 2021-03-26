@@ -8,7 +8,7 @@
 
 <script>
 import titleHead from './components/titleHead.vue';
-import NavBar from "@/components/NavBar";
+import NavBar from "@/components/nav/NavBar";
 import about from "@/components/about";
 // import HiddenImg from './components/HiddenImg.vue'
 // import test from './components/test.vue'
