@@ -1,20 +1,23 @@
 <template>
   <div class="row w-100">
-    <div v-for="tag in tagList" class="col-4 btn btn-2" @click="sectionTag = tag">{{ tagName[tag] }}</div>
+    <div v-for="tag in tagList" :key="tag" class="col-4 btn btn-2" @click="sectionTag = tag">{{ tagName[tag] }}</div>
   </div>
   <div class="sectionBorder">
     <course v-if="sectionTag === 'course'"></course>
     <useful-form v-if="sectionTag === 'usefulForm'"></useful-form>
+    <subject-system v-if="sectionTag === 'subjectSystem'"></subject-system>
   </div>
 </template>
 
 <script>
 import course from "@/components/lesson/lessonTag/course";
 import usefulForm from "@/components/lesson/lessonTag/usefulForm";
+import SubjectSystem from "@/components/lesson/lessonTag/subjectSystem";
 
 export default {
   name: "lessonInfo",
   components: {
+    SubjectSystem,
     course,
     usefulForm,
   },
@@ -36,6 +39,7 @@ export default {
 .sectionBorder {
   border-radius: 10px;
   border: 2px solid #FFF;
+  height: 20em;
 }
 .col-4 {
   text-align: center;

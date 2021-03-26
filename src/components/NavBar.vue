@@ -87,9 +87,10 @@ nav a:hover {
 }
 .logo {
   background: url("../assets/logo.png") no-repeat;
+  background-size: cover;
   float: left;
   height: 5em;
-  width: 17em;
+  width: 5em;
   z-index: 3;
 }
 </style>

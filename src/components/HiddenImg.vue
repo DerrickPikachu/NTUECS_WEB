@@ -22,7 +22,7 @@ export default {
   background: url(../background.jpg) no-repeat center center fixed;
   background-size: cover;
   width: 100%;
-  z-index: -100;
+  z-index: -1000;
 }
 .sticky {
   padding: 0vh 0vw;
