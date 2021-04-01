@@ -4,8 +4,9 @@
 <!--      <div style="height: 25em" class="informationBlock"></div>-->
       <lesson-info></lesson-info>
     </div>
-    <div class="container">
-      <div style="height: 25em;" class="informationBlock"></div>
+    <div class="container mt-5">
+<!--      <div style="height: 25em;" class="informationBlock"></div>-->
+      <master-section></master-section>
     </div>
     <div class="container">
       <div style="height: 25em" class="informationBlock"></div>
@@ -15,9 +16,11 @@
 
 <script>
 import lessonInfo from "@/components/lesson/lessonInfo";
+import masterSection from "@/components/master-section/masterSection";
 export default {
   name: "about",
   components: {
+    masterSection,
     lessonInfo,
   }
 }

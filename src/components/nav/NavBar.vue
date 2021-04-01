@@ -4,34 +4,9 @@
       <div class="logo"></div>
       <ul>
         <nav-tag v-for="tagInfo in navList" :nav-data="tagInfo" :key="tagInfo['tagName']"></nav-tag>
-<!--        <nav-tag :nav-data="navList[0]"></nav-tag>-->
       </ul>
     </div>
   </nav>
-  <!--        <li class="nav-item dropdown">-->
-<!--          <a class="dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
-<!--            Item 1-->
-<!--          </a>-->
-<!--          <ul class="dropdown-menu dropdown-color" aria-labelledby="navbarDropdown">-->
-<!--            <li><a class="dropdown-item" href="#">something</a></li>-->
-<!--            <li><a class="dropdown-item" href="#">something2</a></li>-->
-<!--          </ul>-->
-<!--        </li>-->
-<!--        <li>-->
-<!--          <a href='#'>Item 2</a>-->
-<!--        </li>-->
-<!--        <li>-->
-<!--          <a href='#'>Item 3</a>-->
-<!--        </li>-->
-<!--        <li>-->
-<!--          <a href='#'>Item 4</a>-->
-<!--        </li>-->
-<!--        <li>-->
-<!--          <a href='#'>Item 5</a>-->
-<!--        </li>-->
-<!--        <li>-->
-<!--          <a href='#'>Item 6</a>-->
-<!--        </li>-->
 </template>
 
 <script>

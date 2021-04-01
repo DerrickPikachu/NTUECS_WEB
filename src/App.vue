@@ -7,12 +7,13 @@
 </template>
 
 <script>
+// import HiddenImg from './components/HiddenImg.vue'
+// import test from './components/test.vue'
+
+import $ from 'jquery'
 import titleHead from './components/titleHead.vue';
 import NavBar from "@/components/nav/NavBar";
 import about from "@/components/about";
-// import HiddenImg from './components/HiddenImg.vue'
-// import test from './components/test.vue'
-import $ from 'jquery'
 
 export default {
   name: 'App',
