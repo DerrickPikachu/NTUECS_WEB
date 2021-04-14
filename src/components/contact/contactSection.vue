@@ -41,7 +41,7 @@ p {
 }
 
 img {
-  width: 150px;
+  width: 20%;
   /*display: inline-block;*/
   margin-top: 0;
   margin-bottom: 0;
@@ -51,6 +51,16 @@ img {
   width: 50%;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+}
+
+@media(max-width: 1000px) {
+  .info {
+    font-size: 10px;
+  }
+  img {
+    display: none;
+  }
 }
 
 .contactInfo {

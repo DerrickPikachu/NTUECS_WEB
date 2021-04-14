@@ -41,7 +41,7 @@ export default {
       var scrollTop = window.scrollY,
           height = header.clientHeight,
           calc = 1 - (scrollTop / height);
-      console.log("calc: " + calc);
+      // console.log("calc: " + calc);
 
       if (calc > 1) {
         header.style.opacity = '1';
