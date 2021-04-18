@@ -1,6 +1,7 @@
 .DS_Store
-node_modules
+VueCliTest/cli-test/node_modules
 /dist
+VueCliTest/node_modules
 
 
 # local env files
