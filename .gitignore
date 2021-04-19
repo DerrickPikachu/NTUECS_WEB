@@ -2,6 +2,7 @@
 VueCliTest/cli-test/node_modules
 /dist
 VueCliTest/node_modules
+Webhook/data
 
 
 # local env files
@@ -22,3 +23,4 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+*.pyc
