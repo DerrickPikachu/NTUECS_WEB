@@ -3,6 +3,7 @@ VueCliTest/cli-test/node_modules
 /dist
 VueCliTest/node_modules
 Webhook/data
+Webhook/webhook_server/csdb/migrations
 
 
 # local env files

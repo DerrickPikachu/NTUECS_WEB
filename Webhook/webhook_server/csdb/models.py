@@ -1,4 +1,4 @@
-from aptdaemon.enums import _
+# from aptdaemon.enums import _
 from django.db import models
 
 # Create your models here.
@@ -13,7 +13,7 @@ class Member(models.Model):
         ('professor', 'professor'),
         ('assistance', 'assistance')
     )
-    identity = models.CharField(choices=IDENTITY_TYPE, max_length=10, default=IDENTITY_TYPE[0])
+    identity = models.CharField(choices=IDENTITY_TYPE, max_length=10, default=IDENTITY_TYPE[0][0])
     phone = models.CharField(max_length=20, null=True)
 
 
@@ -25,21 +25,21 @@ class Account(models.Model):
         (1, 'middle'),
         (2, 'low')
     )
-    right = models.IntegerField(choices=RIGHT_TYPE, default=RIGHT_TYPE[2])
-    last_login_date = models.DateTimeField(blank=True)
+    right = models.IntegerField(choices=RIGHT_TYPE, default=RIGHT_TYPE[2][0])
+    last_login_date = models.DateTimeField(null=True)
     member = models.ForeignKey(Member, on_delete=models.CASCADE)
 
 
 class File(models.Model):
     f_id = models.BigAutoField(primary_key=True)
     file_addr = models.CharField(max_length=50)
-    upload_date = models.DateTimeField(blank=True)
+    upload_date = models.DateTimeField(null=True)
     FILE_TYPE = (
         ('bachelor', 'bachelor'),
         ('master', 'master'),
         ('law', 'law')
     )
-    type = models.CharField(choices=FILE_TYPE, max_length=10)
+    type = models.CharField(choices=FILE_TYPE, max_length=10, default=FILE_TYPE[0][0])
     account = models.ForeignKey(Account, on_delete=models.PROTECT)
 
 
@@ -48,7 +48,7 @@ class Student(Member):
         ('bachelor', 'bachelor'),
         ('master', 'master')
     )
-    degree = models.CharField(choices=DEGREE_TYPE, max_length=10, blank=False)
+    degree = models.CharField(choices=DEGREE_TYPE, max_length=10, blank=False, default=DEGREE_TYPE[0][0])
     stu_id = models.CharField(max_length=10, blank=False)
     lab = models.CharField(max_length=20, null=True)
 
@@ -62,7 +62,7 @@ class Professor(Member):
         (1, 'concurrent'),
         (0, 'retire')
     )
-    full_time = models.IntegerField(choices=FULL_TIME_TYPE, blank=False)
+    full_time = models.IntegerField(choices=FULL_TIME_TYPE, blank=False, default=FULL_TIME_TYPE[0][0])
 
 
 class Assistance(Member):
@@ -70,19 +70,19 @@ class Assistance(Member):
 
 
 class Experience(models.Model):
-    pro_id = models.ForeignKey(Professor, models.CASCADE, primary_key=True)
+    pro_id = models.ForeignKey(Professor, models.CASCADE)
     content = models.CharField(max_length=50, blank=False)
 
 
 class Skills(models.Model):
-    pro_id = models.ForeignKey(Professor, models.CASCADE, primary_key=True)
+    pro_id = models.ForeignKey(Professor, models.CASCADE)
     skill = models.CharField(max_length=50, blank=False)
 
 
 class background(models.Model):
-    pro_id = models.ForeignKey(Professor, models.CASCADE, primary_key=True)
+    pro_id = models.ForeignKey(Professor, models.CASCADE)
     school = models.CharField(max_length=30, blank=False)
-    department = models.CharField(max_length=30, blank=True)
+    department = models.CharField(max_length=30, null=True)
 
 
 class BachelorFile(File):
@@ -91,28 +91,28 @@ class BachelorFile(File):
 
 class MasterFile(File):
     class Category(models.TextChoices):
-        ORAL = 'oral', _('oral')
-        FORM = 'form', _('form')
+        ORAL = 'oral', 'oral'
+        FORM = 'form', 'form'
 
-    master_category = models.CharField(choices=Category.choices, max_length=4)
+    master_category = models.CharField(choices=Category.choices, max_length=4, default=Category.FORM)
 
 
 class LawFile(File):
     class Category(models.TextChoices):
-        BACHELOR_LAW = 'BL', _('bachelor_law')
-        MASTER_LAW = 'ML', _('master_law')
-        ADMIN_LAW = 'AL', _('admin_law')
+        BACHELOR_LAW = 'BL', 'bachelor_law'
+        MASTER_LAW = 'ML', 'master_law'
+        ADMIN_LAW = 'AL', 'admin_law'
 
-    law_category = models.CharField(choices=Category.choices, max_length=2)
+    law_category = models.CharField(choices=Category.choices, max_length=2, default=Category.BACHELOR_LAW)
 
 
 class BachelorLaw(models.Model):
-    f_id = models.ForeignKey(LawFile, models.CASCADE, primary_key=True)
+    f_id = models.ForeignKey(LawFile, models.CASCADE)
 
 
 class MasterLaw(models.Model):
-    f_id = models.ForeignKey(LawFile, models.CASCADE, primary_key=True)
+    f_id = models.ForeignKey(LawFile, models.CASCADE)
 
 
 class AdminLaw(models.Model):
-    f_id = models.ForeignKey(LawFile, models.CASCADE, primary_key=True)
+    f_id = models.ForeignKey(LawFile, models.CASCADE)
