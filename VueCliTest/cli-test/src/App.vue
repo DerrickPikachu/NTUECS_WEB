@@ -1,3 +1,10 @@
+<!--<template>-->
+<!--  <div id="nav">-->
+<!--    <router-link to="/">Home</router-link> |-->
+<!--    <router-link to="/about">About</router-link>-->
+<!--  </div>-->
+<!--  <router-view/>-->
+<!--</template>-->
 <template>
   <NavBar></NavBar>
   <titleHead ref="header" id="header"></titleHead>
@@ -8,20 +15,18 @@
 
 <script>
 // import HiddenImg from './components/HiddenImg.vue'
-
+// import test from './components/test.vue'
 import $ from 'jquery'
 import titleHead from './components/titleHead.vue';
 import NavBar from "@/components/nav/NavBar";
 import about from "@/components/about";
-import test from "./components/test";
-
 export default {
   name: 'App',
   components: {
+    // test
     titleHead,
     NavBar,
     about
-    // test
     // HiddenImg
   },
   mounted() {
@@ -42,7 +47,6 @@ export default {
           height = header.clientHeight,
           calc = 1 - (scrollTop / height);
       // console.log("calc: " + calc);
-
       if (calc > 1) {
         header.style.opacity = '1';
       } else if (calc < 0) {
@@ -61,14 +65,12 @@ export default {
 [class*=fontawesome-]:before {
   font-family: "FontAwesome", sans-serif;
 }
-
 * {
   box-sizing: border-box;
 }
 *:before, *:after {
   box-sizing: border-box;
 }
-
 body {
   background: #222;
   margin: 0;
@@ -76,14 +78,12 @@ body {
   font-size: 16px;
   color: #FFF;
 }
-
 /*.container {*/
 /*  max-width: 60em;*/
 /*  min-width: 45em;*/
 /*  margin: 0 auto;*/
 /*  padding: 0 2em;*/
 /*}*/
-
 #nav-bg {
   background: #222;
   position: fixed;
@@ -93,3 +93,4 @@ body {
   z-index: 1;
 }
 </style>
+

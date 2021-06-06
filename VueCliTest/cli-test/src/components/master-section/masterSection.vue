@@ -19,7 +19,7 @@
         <div class="card-header">Header</div>
         <div class="card-body text-dark">
           <h5 class="card-title">Dark card title</h5>
-          <a :href="testAddress">
+          <a v-bind:href="testAddress">
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </a>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -36,7 +36,6 @@
 
 <script>
 import axios from "axios";
-import pdf from "vue-pdf";
 
 export default {
   name: "masterSection",
@@ -46,7 +45,7 @@ export default {
   mounted() {
     axios
         .get('http://127.0.0.1:8000/csdb/9')
-        .then(response => (this.testAddress = '../../assets/' + response.data.address))
+        .then(response => (this.testAddress = '/files/' + response.data.address))
   },
   data() {
     return {
