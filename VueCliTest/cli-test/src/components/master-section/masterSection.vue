@@ -19,7 +19,9 @@
         <div class="card-header">Header</div>
         <div class="card-body text-dark">
           <h5 class="card-title">Dark card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a :href="testAddress">
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </a>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -33,8 +35,24 @@
 </template>
 
 <script>
+import axios from "axios";
+import pdf from "vue-pdf";
+
 export default {
-name: "masterSection"
+  name: "masterSection",
+  components: {
+    // pdf
+  },
+  mounted() {
+    axios
+        .get('http://127.0.0.1:8000/csdb/9')
+        .then(response => (this.testAddress = '../../assets/' + response.data.address))
+  },
+  data() {
+    return {
+      testAddress: null
+    }
+  }
 }
 </script>
 
