@@ -116,3 +116,14 @@ class MasterLaw(models.Model):
 
 class AdminLaw(models.Model):
     f_id = models.ForeignKey(LawFile, models.CASCADE)
+
+
+class Announcement(models.Model):
+    class Type(models.TextChoices):
+        ANNOUNCE = 'AN', 'announce'
+        CONGRATS = 'CO', 'congrats'
+        SUPER_CONGRATS = 'SC', 'super_congrats'
+    announce_text = models.CharField(max_length=50, null=False)
+    announce_type = models.CharField(choices=Type.choices, max_length=2, default=Type.ANNOUNCE)
+    account_id = models.ForeignKey(Account, on_delete=models.SET_NULL, null=True)
+    f_id = models.ForeignKey(File , on_delete=models.SET_NULL, null=True)
