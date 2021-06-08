@@ -31,8 +31,7 @@ class Account(models.Model):
 
 
 class File(models.Model):
-    f_id = models.BigAutoField(primary_key=True)
-    file_addr = models.CharField(max_length=50)
+    file_addr = models.CharField(max_length=50, primary_key=True)
     upload_date = models.DateTimeField(null=True)
     FILE_TYPE = (
         ('bachelor', 'bachelor'),
@@ -70,17 +69,17 @@ class Assistance(Member):
 
 
 class Experience(models.Model):
-    pro_id = models.ForeignKey(Professor, models.CASCADE)
+    professor = models.ForeignKey(Professor, models.CASCADE, null=True)
     content = models.CharField(max_length=50, blank=False)
 
 
 class Skills(models.Model):
-    pro_id = models.ForeignKey(Professor, models.CASCADE)
+    professor = models.ForeignKey(Professor, models.CASCADE, null=True)
     skill = models.CharField(max_length=50, blank=False)
 
 
 class background(models.Model):
-    pro_id = models.ForeignKey(Professor, models.CASCADE)
+    professor = models.ForeignKey(Professor, models.CASCADE, null=True)
     school = models.CharField(max_length=30, blank=False)
     department = models.CharField(max_length=30, null=True)
 
@@ -107,15 +106,15 @@ class LawFile(File):
 
 
 class BachelorLaw(models.Model):
-    f_id = models.ForeignKey(LawFile, models.CASCADE)
+    file = models.ForeignKey(LawFile, models.CASCADE)
 
 
 class MasterLaw(models.Model):
-    f_id = models.ForeignKey(LawFile, models.CASCADE)
+    file = models.ForeignKey(LawFile, models.CASCADE)
 
 
 class AdminLaw(models.Model):
-    f_id = models.ForeignKey(LawFile, models.CASCADE)
+    file = models.ForeignKey(LawFile, models.CASCADE)
 
 
 class Announcement(models.Model):
@@ -123,7 +122,7 @@ class Announcement(models.Model):
         ANNOUNCE = 'AN', 'announce'
         CONGRATS = 'CO', 'congrats'
         SUPER_CONGRATS = 'SC', 'super_congrats'
-    announce_text = models.CharField(max_length=50, null=False)
+    announce_text = models.CharField(max_length=50, null=False, primary_key=True)
     announce_type = models.CharField(choices=Type.choices, max_length=2, default=Type.ANNOUNCE)
-    account_id = models.ForeignKey(Account, on_delete=models.SET_NULL, null=True)
-    f_id = models.ForeignKey(File , on_delete=models.SET_NULL, null=True)
+    account = models.ForeignKey(Account, on_delete=models.SET_NULL, null=True)
+    file = models.ForeignKey(File, on_delete=models.SET_NULL, null=True)

@@ -2,7 +2,7 @@
 VueCliTest/cli-test/node_modules
 /dist
 VueCliTest/node_modules
-Webhook/data
+Webhook/data/db
 Webhook/webhook_server/csdb/migrations
 
 
